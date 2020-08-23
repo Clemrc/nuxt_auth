@@ -30,7 +30,7 @@ module.exports = {
    ** Axios
    */
   axios: {
-    baseURL: "http://localhost:1337/auth/local"
+    baseURL: "http://localhost:1337"
   },
   /*
    ** Auth
@@ -39,12 +39,12 @@ module.exports = {
     strategies: {
       local: {
         endpoints: {
-          login: { url: "/", method: "post", propertyName: "data.user" },
-          logout: false,
-          tokenRequired: false,
-          tokenType: "",
-          globalToken: false,
-          autoFetchUser: true
+          login: {
+            url: "auth/local/",
+            method: "post",
+            propertyName: "data.jwt"
+          },
+          logout: false
         }
       }
     }
