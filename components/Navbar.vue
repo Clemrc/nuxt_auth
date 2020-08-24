@@ -24,7 +24,7 @@
             </div>
           </div>
           <nuxt-link class="navbar-item" to="/register">Register</nuxt-link>
-          <nuxt-link class="navbar-item" to="/login">Log In</nuxt-link>
+          <nuxt-link class="navbar-item" to="/login2">Log In</nuxt-link>
         </div>
       </div>
     </div>

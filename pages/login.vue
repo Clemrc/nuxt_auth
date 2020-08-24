@@ -5,7 +5,8 @@
         <div class="column is-4 is-offset-4">
           <h2 class="title has-text-centered">Welcome back!</h2>
 
-          <Notification :message="error" v-if="error" />
+          <Notification :error="true" :message="error" v-if="error" />
+          <Notification :error="false" :message="sucess" v-if="sucess" />
 
           <form method="post" @submit.prevent="login">
             <div class="field">
@@ -62,7 +63,8 @@ export default {
     return {
       email: "",
       password: "",
-      error: null
+      error: null,
+      sucess: null
     };
   },
 
@@ -75,7 +77,7 @@ export default {
             password: this.password
           }
         });
-
+        this.sucess = "login sucess";
         this.$router.push("/");
       } catch (e) {
         this.error = e.response.data.message;

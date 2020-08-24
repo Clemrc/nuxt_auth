@@ -30,22 +30,48 @@ module.exports = {
    ** Axios
    */
   axios: {
-    baseURL: "http://localhost:1337"
+    baseURL: "http://locahost:1337"
   },
   /*
    ** Auth
    */
+  // auth: {
+  //   strategies: {
+  //     local: {
+  //       endpoints: {
+  //         login: {
+  //           url: "auth/local",
+  //           method: "post",
+  //           propertyName: "data.jwt"
+  //         },
+  //         user: {
+  //           url: "auth/local",
+  //           method: "post",
+  //           propertyName: "data.user"
+  //         },
+  //         logout: false
+  //       }
+  //     }
+  //   }
+  // },
   auth: {
+    redirect: {
+      login: "/login2",
+      logout: "/",
+      callback: false,
+      home: "/"
+    },
     strategies: {
       local: {
         endpoints: {
-          login: {
-            url: "auth/local/",
-            method: "post",
-            propertyName: "data.jwt"
-          },
-          logout: false
-        }
+          login: { url: "/auth/local", method: "post", propertyName: "jwt" },
+          logout: { url: "/auth/logout", method: "post" },
+          user: false
+        },
+        tokenRequired: true,
+        tokenType: "Bearer",
+        globalToken: true,
+        autoFetchUser: false
       }
     }
   },

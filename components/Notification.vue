@@ -2,6 +2,10 @@
   <div class="notification is-danger">
     {{ message }}
   </div>
+
+  <!-- <div v-else class="notification is-info">
+    {{ message }}
+  </div> -->
 </template>
 
 <script>
